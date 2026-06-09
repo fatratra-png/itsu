@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+.button {
+      font-family: "Helvetica";
+      margin:10px;
+      border: solid black;
+      background-color: mediumaquamarine;
+      padding-block: 5px;
+      padding-inline:25px;
+      border-radius: 5px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+}
+.button:hover {
+      background-color: paleturquoise;
+}
