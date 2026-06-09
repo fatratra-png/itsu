@@ -1,17 +1,12 @@
 @import "tailwindcss";
 
-.button {
-      font-family: "Helvetica";
-      margin:10px;
-      border: solid black;
-      background-color: mediumaquamarine;
-      padding-block: 5px;
-      padding-inline:25px;
-      border-radius: 5px;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+:root {
+      --primary-color: #c7101a;
+      --secondary-color: #d64c13;
+      --accent-color: #f3c202;
+      --black: #111110;
+      --white: #eeeeee;
 }
-.button:hover {
-      background-color: paleturquoise;
+.background-primary {
+      background-color: var(--primary-color);
 }
