@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Sidebar from './components/layout/Sidebar';
 
 export default function App() {
-  const [activeItem, setActiveItem] = useState('home');
+  const [activeItem, setActiveItem] = useState('profile');
 
   return (
     <div className="flex min-h-screen bg-[#f1f5f9]">
