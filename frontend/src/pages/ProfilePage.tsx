@@ -10,6 +10,20 @@ import {
   Heart,
 } from "lucide-react";
 
+const WEEKS = 52;
+const DAYS = 7;
+const MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+const monthLabels: { index: number; label: string }[] = [];
+for (let w = 0; w < WEEKS; w++) {
+  const m = new Date(2026, 0, 1 + w * 7).getMonth() + 1;
+  if (!monthLabels.length || monthLabels[monthLabels.length - 1].label !== MONTHS[m]) {
+    monthLabels.push({ index: w, label: MONTHS[m] });
+  }
+}
+
+const DAY_LABELS = ["", "Mon", "", "Wed", "", "Fri", ""];
+
 export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-[#f5f5f7] font-nunito p-6 lg:p-10">
@@ -194,6 +208,73 @@ export default function ProfilePage() {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* ── GitHub-style Contribution Graph ── */}
+      <div className="max-w-4xl mx-auto mt-6 bg-white rounded-3xl p-6 border border-gray-100 shadow-sm">
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+            Contributions
+          </p>
+          <span className="text-[10px] text-gray-300">-- contributions in the last year</span>
+        </div>
+
+        <div className="overflow-x-auto">
+          <div className="inline-flex gap-1">
+            {/* day labels */}
+            <div className="flex flex-col gap-[3px] pt-5 mr-1">
+              {DAY_LABELS.map((l, i) => (
+                <div key={i} className="h-[10px] flex items-center">
+                  <span className="text-[8px] text-gray-400 leading-none">{l}</span>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              {/* month labels */}
+              <div className="flex mb-1 h-4">
+                {monthLabels.map((m, i) => {
+                  const nextIndex = i < monthLabels.length - 1 ? monthLabels[i + 1].index : WEEKS;
+                  const span = nextIndex - m.index;
+                  return (
+                    <div
+                      key={m.index}
+                      className="text-[8px] text-gray-400 leading-none"
+                      style={{ width: span * 13 + (span - 1) * 3 }}
+                    >
+                      {m.label}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* grid */}
+              <div className="flex gap-[3px]">
+                {Array.from({ length: WEEKS }, (_, wi) => (
+                  <div key={wi} className="flex flex-col gap-[3px]">
+                    {Array.from({ length: DAYS }, (_, di) => (
+                      <div
+                        key={di}
+                        className="w-[10px] h-[10px] rounded-sm bg-gray-100"
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* legend */}
+        <div className="flex items-center justify-end gap-1 mt-3">
+          <span className="text-[9px] text-gray-400 mr-1">Less</span>
+          <div className="w-[10px] h-[10px] rounded-sm bg-gray-100" />
+          <div className="w-[10px] h-[10px] rounded-sm bg-red-200" />
+          <div className="w-[10px] h-[10px] rounded-sm bg-red-400" />
+          <div className="w-[10px] h-[10px] rounded-sm bg-[#d1101b]" />
+          <div className="w-[10px] h-[10px] rounded-sm bg-[#9a2a52]" />
+          <span className="text-[9px] text-gray-400 ml-1">More</span>
         </div>
       </div>
     </div>
