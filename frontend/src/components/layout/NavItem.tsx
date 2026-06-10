@@ -16,7 +16,7 @@ export default function NavItem({ icon: Icon, label, isActive, onClick }: NavIte
         relative flex items-center gap-3 w-full px-4 py-3 rounded-xl cursor-pointer
         font-nunito text-sm text-left
         transition-colors duration-200 select-none
-        ${isActive ? 'text-white font-semibold' : 'text-white/45 hover:text-white/75 font-medium'}
+        ${isActive ? 'text-white font-bold text-base' : 'text-white/45 hover:text-white/75 font-medium text-sm'}
       `}
       whileHover={!isActive ? { x: 2 } : undefined}
       whileTap={{ scale: 0.97 }}

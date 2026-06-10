@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# Itsu
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
 
-Currently, two official plugins are available:
+### 1. Profile
+- Joint profile card displaying both linked users
+- **Echo Code** system — generate a code to share with your partner, or enter theirs to link accounts
+- Once linked, the code UI disappears and the partner card is shown
+- Streak & contribution stats:
+  - Days logged into the app
+  - Days of mutual connection with partner
+- Evolving fire animation with visual streaks
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 2. Mood
+- Choose your daily mood from:
+  - 😊 Happy
+  - 💕 In Love
+  - 😢 Sad
+  - 😤 Angry
+  - 🍔 Hungry
+  - 😰 Anxious
+  - 😭 Miss You
+  - 😒 Bad Mood
+- Partner receives a real-time push notification (PWA) whenever you update your mood
+- Can update mood multiple times per day — partner is notified each time
 
-## React Compiler
+### 3. Spam (Partner Radar)
+- See if your partner is currently online
+- Send a **Ping** — triggers 5 ring notifications on your partner's phone
+- Works instantly once the partner is connected to the internet
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 4. DrawDate (Shared Canvas)
+- Full-screen whiteboard canvas
+- Two users draw together in real-time
+- All possible colors available
+- Desktop-optimized shared drawing experience
 
-## Expanding the ESLint configuration
+### 5. Settings
+- Account management
+- Notification preferences
+- Partner linking / unlinking
+- App preferences
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **React 19** + **TypeScript**
+- **Vite** — build tool
+- **Tailwind CSS 4** — styling
+- **Framer Motion** — animations
+- **Lucide React** — icons
+- **React Router DOM** — routing
+- **PWA** — push notifications
