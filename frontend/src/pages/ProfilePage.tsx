@@ -12,12 +12,29 @@ import {
 
 const WEEKS = 52;
 const DAYS = 7;
-const MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MONTHS = [
+  "",
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 const monthLabels: { index: number; label: string }[] = [];
 for (let w = 0; w < WEEKS; w++) {
   const m = new Date(2026, 0, 1 + w * 7).getMonth() + 1;
-  if (!monthLabels.length || monthLabels[monthLabels.length - 1].label !== MONTHS[m]) {
+  if (
+    !monthLabels.length ||
+    monthLabels[monthLabels.length - 1].label !== MONTHS[m]
+  ) {
     monthLabels.push({ index: w, label: MONTHS[m] });
   }
 }
@@ -217,16 +234,20 @@ export default function ProfilePage() {
           <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
             Contributions
           </p>
-          <span className="text-[10px] text-gray-300">-- contributions in the last year</span>
+          <span className="text-[10px] text-gray-300">
+            -- contributions in the last year
+          </span>
         </div>
 
         <div className="overflow-x-auto">
           <div className="inline-flex gap-1">
             {/* day labels */}
-            <div className="flex flex-col gap-[3px] pt-5 mr-1">
+            <div className="flex flex-col gap-0.75 pt-5 mr-1">
               {DAY_LABELS.map((l, i) => (
-                <div key={i} className="h-[10px] flex items-center">
-                  <span className="text-[8px] text-gray-400 leading-none">{l}</span>
+                <div key={i} className="h-2.5 flex items-center">
+                  <span className="text-[8px] text-gray-400 leading-none">
+                    {l}
+                  </span>
                 </div>
               ))}
             </div>
@@ -235,7 +256,10 @@ export default function ProfilePage() {
               {/* month labels */}
               <div className="flex mb-1 h-4">
                 {monthLabels.map((m, i) => {
-                  const nextIndex = i < monthLabels.length - 1 ? monthLabels[i + 1].index : WEEKS;
+                  const nextIndex =
+                    i < monthLabels.length - 1
+                      ? monthLabels[i + 1].index
+                      : WEEKS;
                   const span = nextIndex - m.index;
                   return (
                     <div
