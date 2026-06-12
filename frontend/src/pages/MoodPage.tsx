@@ -1,5 +1,4 @@
 import { RefreshCw, ChevronRight } from "lucide-react";
-
 const MOODS = [
   { emoji: "😊", label: "Happy" },
   { emoji: "🥰", label: "In Love" },
@@ -19,7 +18,7 @@ export default function MoodPage() {
       <div className="max-w-2xl mx-auto flex flex-col gap-5">
         {/* Header */}
         <div>
-          <h1 className="font-fredoka text-2xl font-bold text-gray-900">
+          <h1 className="font-fredoka text-2xl font-extrabold text-[#d1101b]">
             How are you feeling?
           </h1>
           <p className="text-sm text-gray-400 mt-1">
@@ -61,7 +60,7 @@ export default function MoodPage() {
         {/* Intensity */}
         <div className="bg-white rounded-3xl p-5 border border-gray-100 shadow-sm">
           <div className="flex items-center justify-between mb-4">
-            <p className="text-sm font-bold text-gray-900">Intensity</p>
+            <p className="text-sm font-bold text-[#d1101b]">Intensity</p>
             <span className="px-3 py-1 rounded-xl bg-gray-100 border border-gray-200 text-xs font-bold text-gray-400">
               --
             </span>
@@ -89,7 +88,7 @@ export default function MoodPage() {
             --
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-gray-400">
+            <p className="text-sm font-semibold text-[#d1101b]">
               Partner is feeling <span className="text-gray-300">--</span>
             </p>
             <p className="text-xs text-gray-300 mt-0.5">Updated --</p>
