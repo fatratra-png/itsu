@@ -3,6 +3,7 @@ import Sidebar from "./components/layout/Sidebar";
 import ProfilePage from "./pages/ProfilePage";
 import MoodPage from "./pages/MoodPage";
 import ChatPage from "./pages/ChatPage";
+import SpamPage from "./pages/SpamPage";
 export default function App() {
   const [activeItem, setActiveItem] = useState("profile");
 
@@ -13,6 +14,7 @@ export default function App() {
       {activeItem === "profile" && <ProfilePage />}
       {activeItem === "mood" && <MoodPage />}
       {activeItem === "chat" && <ChatPage />}
+      {activeItem === "spam" && <SpamPage />}
     </div>
   );
 }
