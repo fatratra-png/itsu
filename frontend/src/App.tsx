@@ -4,6 +4,7 @@ import ProfilePage from "./pages/ProfilePage";
 import MoodPage from "./pages/MoodPage";
 import ChatPage from "./pages/ChatPage";
 import SpamPage from "./pages/SpamPage";
+import SettingPage from "./pages/SettingPage";
 export default function App() {
   const [activeItem, setActiveItem] = useState("profile");
 
@@ -15,6 +16,7 @@ export default function App() {
       {activeItem === "mood" && <MoodPage />}
       {activeItem === "chat" && <ChatPage />}
       {activeItem === "spam" && <SpamPage />}
+      {activeItem === "settings" && <SettingPage />}
     </div>
   );
 }

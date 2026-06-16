@@ -15,7 +15,12 @@ export default function Alert({
   return (
     <div className="bg-white rounded-xl px-5 py-4 shadow-xl border border-gray-100 flex items-center gap-3">
       <p className="text-gray-800 font-nunito text-sm flex-1">{message}</p>
-      <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-lg leading-none">&times;</button>
+      <button
+        onClick={onClose}
+        className="text-gray-400 hover:text-gray-600 text-lg leading-none"
+      >
+        &times;
+      </button>
     </div>
   );
 }
